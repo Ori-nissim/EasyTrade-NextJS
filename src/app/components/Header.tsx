@@ -8,7 +8,7 @@ export default function Header() {
 
     const [isMenuShown, setMenuShown] = useState(false)
 
-    // Toggle function to show/hide the menu
+    // Toggle function to show/hide the menu fdfd
     const toggleMenu = () => {
         setMenuShown(!isMenuShown);
     };
