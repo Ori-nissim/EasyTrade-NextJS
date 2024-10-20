@@ -1,34 +1,26 @@
-import Card from './Card'
 
-export default function News() {
+import NewsArticleItem from './NewsArticleItem';
+import {Article} from "./NewsArticleItem"
 
-    return <div > 
-    <h1 className="font-bold "> Stock Quotes</h1>
-    <ul className="flex flex-col gap-1">
-        <li>
-            <Card>
-                <h3>Stock 1</h3>
-                <p>Price</p>
-                <p>Daily Change</p>
-            </Card>
-            
-        </li>
-        <li>
-            <Card>
-                <h3>Stock 2</h3>
-                <p>Price</p>
-                <p>Daily Change</p>
-            </Card>
-            
-        </li>
-        <li>
-            <Card>
-                <h3>Stock 3</h3>
-                <p>Price</p>
-                <p>Daily Change</p>
-            </Card>
-            
-        </li>
-    </ul>
-</div>
+export default async function News() {
+    const apiKey = process.env.NEXT_PUBLIC_ALPHA_VANTAGE_API_KEY;
+
+
+    const response = await fetch(`https://www.alphavantage.co/query?function=NEWS_SENTIMENT&apikey=` + apiKey);
+    let news = await response.json();
+    news = news["feed"]
+
+    return <div className='my-4'>
+        <h1 className="font-bold text-xl mb-1">Latests news</h1>
+        <ul className="flex flex-col gap-1">
+            {news.map((article: Article,index: number) => {
+                return (
+                <li key ={index}>
+                    <NewsArticleItem article={article} key={index}></NewsArticleItem>
+                        
+                        
+                </li>);
+            })}
+       </ul>
+    </div>
 }

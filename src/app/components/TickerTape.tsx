@@ -4,7 +4,7 @@ export default function TickerTape() {
     return (
       <div>
         {/* TradingView Widget BEGIN */}
-        <div className="tradingview-widget-container mb-96">
+        <div className="tradingview-widget-container ">
           <div className="tradingview-widget-container__widget"></div>
           <div className="tradingview-widget-copyright ">         
           </div>
