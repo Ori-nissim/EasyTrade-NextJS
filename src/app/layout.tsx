@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "EasyTrade",
+  title: "EasyTrade - Trade Responsibly",
   description: "",
 };
 
@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head/>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <ThemeProvider>{children}</ThemeProvider>
+      <ThemeProvider attribute="class" defaultTheme="dark">{children}</ThemeProvider>
       </body>
 
     </html>

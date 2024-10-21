@@ -16,7 +16,7 @@ export default async function StockQuotes() {
 
     return (
         <div className="w-full md:w-1/2 ">
-            <h1 className="font-bold text-xl mb-1 ">Trending Quotes</h1>
+            <h1 className="font-bold text-xl text-text mb-1 ">Trending Quotes</h1>
            
                     {stockData.map((quote, index) => {
                         const globalQuote = quote["Global Quote"];

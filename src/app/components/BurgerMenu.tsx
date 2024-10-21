@@ -9,7 +9,7 @@ export default function BurgerMenu({ toggleMenu }: { toggleMenu: () => void }) {
         width="24"
         height="24"
         fill="currentColor"
-        className="text-blue-500 cursor-pointer sm:hidden"
+        className="text-complement cursor-pointer md:hidden"
         onClick={toggleMenu}
     >
         <rect x="4" y="6" width="16" height="2" />
