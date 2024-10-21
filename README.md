@@ -4,9 +4,12 @@ A trading web application that allows users to document their trades/investments
 * Next JS & Typescript
 * Tailwind CSS
   
-### Home page with dark mode and mobile support
+## Home page with dark mode and mobile support
+### Light mode
 ![image](https://github.com/user-attachments/assets/0b5a3bc8-a741-4c7b-9142-7f4339808367)
+### Dark mode
 ![image](https://github.com/user-attachments/assets/9eeb9f7b-500d-4dac-aab5-2ee3996981dd)
+### Dark mode for mobile
 ![image](https://github.com/user-attachments/assets/ca79d500-b1af-474b-9cf6-1e20164e55e4)
 
 
