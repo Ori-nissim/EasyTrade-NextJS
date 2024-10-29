@@ -3,7 +3,9 @@ import StockQuoteItem from "./StockQuoteItem";
 
 
 export default async function StockQuotes() {
+
     const symbols = ["IBM", "AAPL", "GOOGL"];
+    
     const apiKey = process.env.NEXT_PUBLIC_ALPHA_VANTAGE_API_KEY;
 
     const fetchStock = async (symbol: string) => {
