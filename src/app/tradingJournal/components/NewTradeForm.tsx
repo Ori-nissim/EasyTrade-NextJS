@@ -79,7 +79,7 @@ export default function NewTradeForm({ addTrade }: NewTradeFormProps) {
   };
 
   return (
-    <div className="flex-1 bg-card p-6 rounded-lg shadow-md max-w-md  my-5 text-text">
+    <div className="min-w-52 md:w-1/4 bg-card p-4 rounded-lg shadow-md my-5 text-text">
       <h1 className="font-bold text-xl text-text mb-4">Add New Trade</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>

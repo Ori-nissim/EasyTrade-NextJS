@@ -35,16 +35,16 @@ export default function NewsArticleItem({ article }: Article) {
     const dateTimeStr = formatDateTime(article.time_published);
     
     return (
-        <a href={article.url} className="flex p-4 my-2 bg-card rounded-md hover:bg-cardHover relative">
-            <img className=" w-1/5 max-h-40" alt={article.title} src={article.banner_image}></img>
+        <a href={article.url} className="flex p-4 my-2 bg-card rounded-md hover:bg-cardHover relative ">
+            <img className="w-60 h-40 object-cover" alt={article.title} src={article.banner_image}></img>
             <div>
                 <span className="absolute bottom-4 right-4  text-text bg-gra rounded-2xl px-2">
                     {dateTimeStr}
                 </span>
             </div>
             <div className="border-l-2 border-complement pl-4 ml-4 flex flex-col">
-                <h2 className="font-bold md:text-lg text-text">{article.title}</h2>
-                <p className="mb-6 text-text">{article.summary}</p>
+                <h2 className="font-bold md:text-lg text-text line-clamp-3">{article.title}</h2>
+                <p className="mb-6 text-text line-clamp-2">{article.summary}</p>
                 <p className="text-textSecondary mt-auto">{article.source}</p>
             </div>
             

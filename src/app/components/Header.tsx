@@ -1,9 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import BurgerMenu from "./BurgerMenu";
 import DropDownMenu from "./DropDownMenu";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
   const { data: session } = useSession(); // Get the session object
@@ -31,10 +33,12 @@ export default function Header() {
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <div className="bg-card p-2 rounded-md">
-            <img
-              className="h-12"
+            <Image
+              className="h-12 w-fit"
               src="https://play-lh.googleusercontent.com/I8NUyhq9CVcHWr4tPkujRk2eDHN9Yr2yIg0VorjzeDYYiW7vtzJ4aoKlIoFNDSXrDjM=w240-h480-rw"
               alt="EasyTrade Logo"
+              width={50}
+              height={50}
             />
           </div>
           <h1 className="text-2xl text-text text-gray-800 inter font-bold">
@@ -42,30 +46,35 @@ export default function Header() {
           </h1>
         </div>
 
-        <ul className="space-x-4 hidden md:flex">
+        <ul className="space-x-4 hidden lg:flex">
           <li>
-            <a className="text-lg text-text hover:text-textHover" href="/">
+            <Link className="text-lg text-text hover:text-textHover" href="/">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="text-lg text-text hover:text-textHover" href="/portfolio">
+            <Link className="text-lg text-text hover:text-textHover" href="/portfolio">
               My Portfolio
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="text-lg text-text hover:text-textHover" href="/tradingJournal">
+            <Link className="text-lg text-text hover:text-textHover" href="/tradingJournal">
               Trading Journal
-            </a>
+            </Link>
           </li>
         </ul>
 
-        <ul className="flex items-center justify-center space-x-4 hidden md:flex">
-         
+        <ul className="flex items-center justify-center space-x-4 hidden lg:flex">
           {session ? (
             <li className="flex items-center justify-center space-x-2">
               {/* Render the user's name and sign-out button if logged in */}
-              <img className="rounded-full size-10" src={session.user?.image}></img>
+              <Image
+                alt="User profile picture"
+                className="rounded-full size-10"
+                src={session.user?.image || '/default-profile.png'} // Fallback image
+                width={40} // Explicit width
+                height={40} // Explicit height
+              />
               <span className="text-text mr-4">Hello, {session.user?.name}</span>
               <button
                 className="border-red-500 text-red-500 border-2 rounded-md py-2 px-2 hover:bg-red-50"
@@ -73,7 +82,7 @@ export default function Header() {
               >
                 Sign Out
               </button>
-              
+
             </li>
           ) : (
             <li>
@@ -86,17 +95,15 @@ export default function Header() {
               </button>
             </li>
           )}
-           <li>
+          <li>
             <button
               onClick={toggleDarkMode}
-              className={`relative inline-flex items-center h-8 w-16 hover:bg-slate-200 rounded-full transition-colors duration-300 ease-in-out ${
-                isDarkMode ? "bg-textSecondary" : "bg-cardHover"
-              }`}
+              className={`relative inline-flex items-center h-8 w-16 hover:bg-slate-200 rounded-full transition-colors duration-300 ease-in-out ${isDarkMode ? "bg-textSecondary" : "bg-cardHover"
+                }`}
             >
               <span
-                className={`transform transition duration-300 ease-in-out inline-block h-6 w-6 rounded-full bg-white shadow-md ${
-                  isDarkMode ? "translate-x-8" : "translate-x-2"
-                }`}
+                className={`transform transition duration-300 ease-in-out inline-block h-6 w-6 rounded-full bg-white shadow-md ${isDarkMode ? "translate-x-8" : "translate-x-2"
+                  }`}
               />
             </button>
           </li>

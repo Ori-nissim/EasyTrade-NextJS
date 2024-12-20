@@ -1,27 +1,31 @@
-import Header from "./components/Header";
 import StockQuotes from "./components/StockQuotes";
 import News from "./components/News";
-import Footer from "./components/Footer";
-import ContentContainer from "./components/ContentContainer";
-import TickerTape from "./components/TickerTape";
 import Banner from "./components/Banner";
-import { SessionProvider } from "next-auth/react";
+import TickerTape from "./components/TickerTape";
+import Pagination from "./components/Pagination";
 
-export default function Home() {
+export default async function Home(props: {
+  searchParams?: Promise<{
+    page?: string;
+  }>;
+}) {
+
+
+  const searchParams =  await props.searchParams
+  
+  const currentPage = Number(searchParams?.page) || 1;
+  
+  const totalPages = 10 // 50 news articles are sent in the query
+
   return (
     <div>
-      <SessionProvider>
-        <Header />
-        <TickerTape />
-        <ContentContainer>
-          <div className="flex flex-col md:flex-row flex-grow w-full gap-y-4 md:gap-x-4">
-            <StockQuotes />
-            <Banner />
-          </div>
-          <News />
-        </ContentContainer>
-        <Footer />
-      </SessionProvider>
+      <div className="flex flex-col md:flex-row">
+      <StockQuotes />
+      <Banner />
+      </div>
+      {<Pagination totalPages={totalPages} currentPage={currentPage}/>}
+      <News currentPage={currentPage}/>
+      <TickerTape/>
     </div>
   );
 }
