@@ -1,4 +1,4 @@
-import { Trade } from "./NewTradeForm";
+import { Trade } from "@/app/lib/definitions";
 import TradeListItem from "./TradeListIem";
 
 interface TradeListProps {

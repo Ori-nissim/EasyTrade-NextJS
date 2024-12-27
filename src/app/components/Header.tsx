@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import BurgerMenu from "./BurgerMenu";
 import DropDownMenu from "./DropDownMenu";
@@ -34,7 +34,7 @@ export default function Header() {
         <div className="flex items-center">
           <div className="bg-card p-2 rounded-md">
             <Image
-              className="h-12 w-fit"
+              className="h-12 w-fit rounded-md"
               src="https://play-lh.googleusercontent.com/I8NUyhq9CVcHWr4tPkujRk2eDHN9Yr2yIg0VorjzeDYYiW7vtzJ4aoKlIoFNDSXrDjM=w240-h480-rw"
               alt="EasyTrade Logo"
               width={50}

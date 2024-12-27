@@ -10,9 +10,8 @@ export default async function Home(props: {
   }>;
 }) {
 
-
   const searchParams =  await props.searchParams
-  
+
   const currentPage = Number(searchParams?.page) || 1;
   
   const totalPages = 10 // 50 news articles are sent in the query

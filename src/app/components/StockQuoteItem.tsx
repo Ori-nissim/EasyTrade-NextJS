@@ -1,11 +1,6 @@
+import { StockQuoteProps } from "../lib/definitions";
 
-interface StockQuoteProps {
-    symbol: string,
-    price: number,
-    change: number,
-    changePercent: string,
 
-}
 export default function StockQuoteItem({ symbol, price, change, changePercent }: StockQuoteProps) {
     
     const color = change > 0 ? "text-green-600": "text-red-600"

@@ -1,15 +1,5 @@
-export interface Article {
-    article: {
-        title: string;
-        // Add any other properties you need from the article object
-        url: string; // Example property, replace with actual properties
-        summary: string; // Example property
-        banner_image: string;
-        source: string
-        time_published: string;
+import { Article } from '../lib/definitions';
 
-    }
-}
 
 function formatDateTime(dateTimeStr: string): string {
     // Extract date components from the input string

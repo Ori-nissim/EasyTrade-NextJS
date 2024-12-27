@@ -1,9 +1,12 @@
 
+import { Article } from '../lib/definitions';
 import NewsArticleItem from './NewsArticleItem';
-import {Article} from "./NewsArticleItem"
+
 
 export default async function News(props:{currentPage:number}) {
     const apiKey = process.env.NEXT_PUBLIC_ALPHA_VANTAGE_API_KEY;
+
+    throw new Error("Failed loading news!");
 
     const response = await fetch(`https://www.alphavantage.co/query?function=NEWS_SENTIMENT&limit=10&apikey=` + apiKey);
     let news = await response.json();

@@ -1,6 +1,7 @@
 "use client";
 
-import NewTradeForm, { Trade } from "./components/NewTradeForm";
+import NewTradeForm from "./components/NewTradeForm";
+import { Trade } from "../lib/definitions";
 import TradeList from "./components/TradesList";
 import { useState } from "react";
 

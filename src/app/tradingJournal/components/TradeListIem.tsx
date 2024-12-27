@@ -1,4 +1,5 @@
-import { Trade } from "./NewTradeForm";
+import { Trade } from "@/app/lib/definitions";
+
 
 type TradeListItemProps = {
   trade: Trade; // The trade object to display

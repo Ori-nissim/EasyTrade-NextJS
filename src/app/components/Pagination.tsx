@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 
+// TODO - Fix problem the "Next" button, when the user is on the last page.
 export default function Pagination(props: { currentPage: number; totalPages: number }) {
   const { currentPage, totalPages } = props; // Props destructuring
   const pathname = usePathname();
