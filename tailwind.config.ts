@@ -7,20 +7,22 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: 'class', // Enable dark mode with class strategy
+  darkMode: "class", // Enable dark mode with class strategy
   theme: {
     extend: {
       colors: {
-        text: 'var(--text)',
-        textTitle:'var(--text-title)',
-        textSecondary:'var(--text-secondary)',
-        textHover: 'var(--text-hover)',
-        card: 'var(--card)',
-        cardHover: 'var(--card-hover)',
-        background: 'var(--background)',
-        badge: 'var(----badge)',
-        complement: 'var(--complement)',
-        complementHover: 'var(--complement-hover)',
+        text: "var(--text)",
+        textTitle: "var(--text-title)",
+        textSecondary: "var(--text-secondary)",
+        textHover: "var(--text-hover)",
+        card: "var(--card)",
+        cardHover: "var(--card-hover)",
+        background: "var(--background)",
+        badge: "var(----badge)",
+        complement: "var(--complement)",
+        complementHover: "var(--complement-hover)",
+        buttonEnabled: "var(--button-enabled)",
+        buttonBlocked: "var(--button-blocked)",
       },
     },
   },

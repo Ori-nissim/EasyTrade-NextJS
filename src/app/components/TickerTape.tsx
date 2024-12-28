@@ -1,20 +1,19 @@
-import Script from 'next/script';
+import Script from "next/script";
 
 export default function TickerTape() {
-    return (
-      <div>
-        {/* TradingView Widget BEGIN */}
-        <div className="tradingview-widget-container ">
-          <div className="tradingview-widget-container__widget"></div>
-          <div className="tradingview-widget-copyright ">         
-          </div>
-          <Script
-            id="ticker-tape"
-            type="text/javascript"
-            src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
-            async
-          >
-            {`
+  return (
+    <div>
+      {/* TradingView Widget BEGIN */}
+      <div className="tradingview-widget-container ">
+        <div className="tradingview-widget-container__widget"></div>
+        <div className="tradingview-widget-copyright "></div>
+        <Script
+          id="ticker-tape"
+          type="text/javascript"
+          src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+          async
+        >
+          {`
             {
               "symbols": [
                 {
@@ -49,10 +48,9 @@ export default function TickerTape() {
               "locale": "en"
             }
             `}
-          </Script>
-        </div>
-        {/* TradingView Widget END */}
+        </Script>
       </div>
-    );
-  }
-  
+      {/* TradingView Widget END */}
+    </div>
+  );
+}
