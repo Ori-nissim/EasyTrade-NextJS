@@ -15,10 +15,13 @@ export default function Header() {
   // On initial render, check for saved theme preference in localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    setDarkMode(savedTheme === "dark");
+    if (savedTheme === "dark") {
+      setDarkMode(true);
+    }
   }, []);
 
   // Effect to set the body class based on the dark mode state
+  
   useEffect(() => {
     document.body.classList.toggle("dark", isDarkMode);
     document.body.classList.toggle("light", !isDarkMode);

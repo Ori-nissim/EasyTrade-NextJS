@@ -29,3 +29,6 @@ export type Trade = {
     email: string;       // User's email associated with the trade
   };
   
+  export interface NewTradeFormProps {
+    addTrade: (trade: Trade) => void; // Define the type for the addTrade prop
+  }

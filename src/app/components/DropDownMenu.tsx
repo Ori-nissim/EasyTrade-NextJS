@@ -1,7 +1,11 @@
 "use client";
-export default function DropDownMenu(
-  { toggleDarkMode }: { toggleDarkMode: () => void },
-  isDarkMode: boolean
+export default function DropDownMenu( props: {
+   toggleDarkMode :  () => void  ,
+   isDarkMode : boolean
+  
+}
+  
+  
 ) {
   return (
     <div className="absolute top-16 right-0 w-48 bg-background text-text shadow-md lg:hidden">
@@ -23,14 +27,14 @@ export default function DropDownMenu(
         </li>
         <li>
           <button
-            onClick={toggleDarkMode}
+            onClick={props.toggleDarkMode}
             className={`relative inline-flex items-center h-6 w-12 hover:bg-slate-200 rounded-full transition-colors duration-300 ease-in-out ${
-              isDarkMode ? "bg-textSecondary" : "bg-cardHover"
+              props.isDarkMode ? "bg-textSecondary" : "bg-cardHover"
             }`}
           >
             <span
               className={`transform transition duration-300 ease-in-out inline-block h-4 w-4 rounded-full bg-white shadow-md ${
-                isDarkMode ? "translate-x-7" : "translate-x-2"
+                props.isDarkMode ? "translate-x-7" : "translate-x-2"
               }`}
             />
           </button>

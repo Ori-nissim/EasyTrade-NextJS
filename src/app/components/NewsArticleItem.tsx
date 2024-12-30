@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Article } from "../lib/definitions";
 
 function formatDateTime(dateTimeStr: string): string {
@@ -35,7 +36,7 @@ export default function NewsArticleItem({ article }: Article) {
       className="flex p-4 my-2 bg-card rounded-md hover:bg-cardHover relative "
     >
       <img
-        className="w-40 h-40 object-cover"
+        className="w-40 h-40 "
         alt={article.title}
         src={article.banner_image}
       ></img>
