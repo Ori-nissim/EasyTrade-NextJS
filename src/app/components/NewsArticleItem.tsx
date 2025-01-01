@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Article } from "../lib/definitions";
 
 function formatDateTime(dateTimeStr: string): string {

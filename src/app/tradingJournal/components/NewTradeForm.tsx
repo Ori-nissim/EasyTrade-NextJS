@@ -1,65 +1,23 @@
 "use client";
+import TickerSearchInput from "@/app/components/TickerSearchInput";
 import { FormState, formSubmitAction } from "@/app/lib/actions";
 import { NewTradeFormProps } from "@/app/lib/definitions";
 import { useSession } from "next-auth/react";
-import { useState } from "react";
 import { useFormState } from "react-dom";
-
-
 
 export default function NewTradeForm({ addTrade }: NewTradeFormProps) {
 
-  const [error, setError] = useState<string | null>(null);
   const { data: session } = useSession();
 
   const initialState: FormState = { message: null, errors: {} };
   const [currentformData, formAction] = useFormState(formSubmitAction, initialState);
-
-
 
   return (
 
     <div className="min-w-52 md:w-1/4 bg-card p-4 rounded-lg shadow-md my-5 text-text">
       <h1 className="font-bold text-xl text-text mb-4">Add New Trade</h1>
       <form action={formAction} className="space-y-4">
-        <div>
-          <label htmlFor="symbol" className="block mb-1 text-textSecondary">Symbol</label>
-          <input
-            type="text"
-            name="symbol"
-            required
-            className="w-full p-2 border rounded-md bg-background text-text placeholder:textHover focus:border-complement"
-          />
-        </div>
-        <div>
-          <label htmlFor="price" className="block mb-1 text-textSecondary">Price</label>
-          <input
-            name="price"
-            type="number"
-            required
-            className="w-full p-2 border rounded-md bg-background text-text placeholder:textHover focus:border-complement"
-          />
-        </div>
-        <div>
-          <label htmlFor="amount" className="block mb-1 text-textSecondary">Amount</label>
-          <input
-            name="amount"
-            type="number"
-            required
-            className="w-full p-2 border rounded-md bg-background text-text placeholder:textHover focus:border-complement"
-          />
-        </div>
-        <div>
-          <label htmlFor="date" className="block mb-1 text-textSecondary">Date</label>
-          <input
-            name="date"
-            type="date"
-
-            required
-            className="w-full p-2 border rounded-md bg-background text-text placeholder:textHover focus:border-complement"
-          />
-        </div>
-        <div>
+      <div>
           <label htmlFor="transaction" className="block mb-1 text-textSecondary">Action Type</label>
           <select
             name="transaction"
@@ -70,7 +28,39 @@ export default function NewTradeForm({ addTrade }: NewTradeFormProps) {
             <option value="" disabled>Select action</option>
             <option value="buy">Buy</option>
             <option value="sell">Sell</option>
+            <option value="sell">Opinion</option>
           </select>
+        </div>
+        <TickerSearchInput/>
+        <div>
+          <label htmlFor="price" className="block mb-1 text-textSecondary">Price</label>
+          <input
+            name="price"
+            min="1"
+            type="number"
+            required
+            className="w-full p-2 border rounded-md bg-background text-text placeholder:textHover focus:border-complement"
+          />
+        </div>
+        <div>
+          <label htmlFor="amount" className="block mb-1 text-textSecondary">Amount</label>
+          <input
+            name="amount"
+            min="1"
+            type="number"
+            required
+            className="w-full p-2 border rounded-md bg-background text-text placeholder:textHover focus:border-complement"
+          />
+        </div>
+        <div>
+          <label htmlFor="date" className="block mb-1 text-textSecondary">Date</label>
+          <input
+            name="date"
+            type="date"
+            required
+            max={new Date().toISOString().split("T")[0]}
+            className="w-full p-2 border rounded-md bg-background text-text placeholder:textHover focus:border-complement"
+          />
         </div>
         <div>
           <label htmlFor="description" className="block mb-1 text-textSecondary">Description</label>
@@ -84,11 +74,9 @@ export default function NewTradeForm({ addTrade }: NewTradeFormProps) {
         </div>
         <button
           type="submit"
-
-          className="w-full bg-complement hover:bg-complementHover text-white font-semibold py-2 rounded-md"
-        >Add Trade
+          className="w-full bg-complement hover:bg-complementHover text-white font-semibold py-2 rounded-md">
+            Add Trade
         </button>
-        {error && <p className="text-red-500 mt-2 text-center">{error}</p>}
       </form>
     </div>
   );
