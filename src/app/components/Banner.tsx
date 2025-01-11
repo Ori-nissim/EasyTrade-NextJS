@@ -6,7 +6,7 @@ export default function Banner() {
   const { data: session } = useSession(); // Get the session object
 
   const text = session?.user
-    ? `Welcome back ${session.user.name}`
+    ? `Welcome back ${session?.user?.name.split(" ")[0] }`
     : "Sign in now to unlock more features such as portfolio and trading journal";
 
   return (

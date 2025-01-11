@@ -16,6 +16,7 @@ const config: Config = {
         textSecondary: "var(--text-secondary)",
         textHover: "var(--text-hover)",
         card: "var(--card)",
+        tradeCard: "var(--tradeCard)",
         cardHover: "var(--card-hover)",
         background: "var(--background)",
         badge: "var(----badge)",
@@ -23,9 +24,12 @@ const config: Config = {
         complementHover: "var(--complement-hover)",
         buttonEnabled: "var(--button-enabled)",
         buttonBlocked: "var(--button-blocked)",
+        themeButton: "var(--theme-button)",
+        themeButtonBackground: "var(--theme-button-background)",
       },
     },
   },
   plugins: [],
+
 };
 export default config;

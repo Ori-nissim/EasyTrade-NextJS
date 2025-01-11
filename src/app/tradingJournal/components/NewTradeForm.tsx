@@ -11,10 +11,13 @@ export default function NewTradeForm({ addTrade }: NewTradeFormProps) {
 
   const initialState: FormState = { message: null, errors: {} };
   const [currentformData, formAction] = useFormState(formSubmitAction, initialState);
+  
+  
+
 
   return (
 
-    <div className="min-w-52 md:w-1/4 bg-card p-4 rounded-lg shadow-md my-5 text-text">
+    <div className="min-w-52 md:w-1/3 card">
       <h1 className="font-bold text-xl text-text mb-4">Add New Trade</h1>
       <form action={formAction} className="space-y-4">
       <div>
@@ -28,12 +31,12 @@ export default function NewTradeForm({ addTrade }: NewTradeFormProps) {
             <option value="" disabled>Select action</option>
             <option value="buy">Buy</option>
             <option value="sell">Sell</option>
-            <option value="sell">Opinion</option>
+            <option value="insights">Share your insights</option>
           </select>
         </div>
         <TickerSearchInput/>
         <div>
-          <label htmlFor="price" className="block mb-1 text-textSecondary">Price</label>
+          <label htmlFor="price" className="block mb-1 text-textSecondary">Price per share</label>
           <input
             name="price"
             min="1"

@@ -1,7 +1,7 @@
 "use client";
 
 import { useDebouncedCallback } from "use-debounce";
-import fetchTickerSearchResults from "../lib/data";
+import {fetchTickerSearchResults} from "../lib/data";
 import { useState } from "react";
 
 export default function TickerSearchInput() {
@@ -11,7 +11,7 @@ export default function TickerSearchInput() {
     const handleSearch = useDebouncedCallback(async (queryInput: string) => {
         if (queryInput !== "") {
             const res = await fetchTickerSearchResults(queryInput);
-            setSearchResults(res["bestMatches"] || []);
+            setSearchResults(res["result"] || []);
         } else {
             setSearchResults([]);
         }
@@ -60,12 +60,13 @@ export default function TickerSearchInput() {
                 {searchResults && searchResults.length > 0 && (
                     <ul className="absolute z-10 bg-background p-2 border rounded-md w-full max-h-60 overflow-y-auto">
                         {searchResults.map((resItem, key) => (
+                            
                             <li
                                 key={key}
-                                className="bg-textTitle rounded-sm my-2 p-1 hover:bg-cardHover cursor-pointer"
-                                onClick={() => handleResultClick(resItem["1. symbol"])} // Update input on click
+                                className="bg-textTitle rounded-md my-2 p-2 shadow-md  hover:bg-cardHover cursor-pointer"
+                                onClick={() => handleResultClick(resItem["displaySymbol"])} // Update input on click
                             >
-                                {resItem["1. symbol"]} - {resItem["2. name"]}
+                               <b> {resItem["displaySymbol"]} </b> - {resItem["description"]}
                             </li>
                         ))}
                     </ul>

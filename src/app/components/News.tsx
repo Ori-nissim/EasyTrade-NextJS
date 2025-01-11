@@ -32,7 +32,7 @@ export default async function News(props: {
 
   return (
     <div className="mt-4">
-      <h1 className="font-bold text-xl mb-1 text-text">Latests news</h1>
+      <h1 className="font-bold text-2xl mb-1 text-text">Latests news</h1>
       {<Pagination totalPages={totalPages} currentPage={currentPage} />}
       <ul className="flex flex-col gap-1">
         {newsPage.map((article: Article, index: number) => {

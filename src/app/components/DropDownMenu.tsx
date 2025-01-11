@@ -1,44 +1,28 @@
 "use client";
-export default function DropDownMenu( props: {
-   toggleDarkMode :  () => void  ,
-   isDarkMode : boolean
-  
+
+import { Session } from "next-auth";
+import LogInSignUp from "./LogInSignUp";
+import { NavRoutesItem } from "./NavRoutes";
+import ToggleTheme from "./ToggleTheme";
+
+export default function DropDownMenu(props: {
+  toggleDarkMode: () => void,
+  isDarkMode: boolean,
+  session:Session
+
 }
-  
-  
+
+
 ) {
   return (
     <div className="absolute top-16 right-0 w-48 bg-background text-text shadow-md lg:hidden">
       <ul className="flex flex-col space-y-2 p-4">
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/portfolio">My Portfolio</a>
-        </li>
-        <li>
-          <a href="/journal">Trading Journal</a>
-        </li>
-        <li>
-          <a href="/log-in">Log In</a>
-        </li>
-        <li>
-          <a href="/sign-up">Sign Up</a>
-        </li>
-        <li>
-          <button
-            onClick={props.toggleDarkMode}
-            className={`relative inline-flex items-center h-6 w-12 hover:bg-slate-200 rounded-full transition-colors duration-300 ease-in-out ${
-              props.isDarkMode ? "bg-textSecondary" : "bg-cardHover"
-            }`}
-          >
-            <span
-              className={`transform transition duration-300 ease-in-out inline-block h-4 w-4 rounded-full bg-white shadow-md ${
-                props.isDarkMode ? "translate-x-7" : "translate-x-2"
-              }`}
-            />
-          </button>
-        </li>
+        <LogInSignUp session={props.session}/>
+        <NavRoutesItem path="/" text="Home" />
+        <NavRoutesItem path="/tradingJournal" text="Trading Journal" />
+        <NavRoutesItem path="/portfolio" text="Portfolio" />
+        <ToggleTheme toggleDarkMode={props.toggleDarkMode} isDarkMode={props.isDarkMode} />
+
       </ul>
     </div>
   );

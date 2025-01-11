@@ -2,9 +2,9 @@ import Script from "next/script";
 
 export default function TickerTape() {
   return (
-    <div>
+    <div className=" absolute top-30">
       {/* TradingView Widget BEGIN */}
-      <div className="tradingview-widget-container ">
+  
         <div className="tradingview-widget-container__widget"></div>
         <div className="tradingview-widget-copyright "></div>
         <Script
@@ -44,12 +44,12 @@ export default function TickerTape() {
               "showSymbolLogo": true,
               "isTransparent": false,
               "displayMode": "adaptive",
-              "colorTheme": "dark",
-              "locale": "en"
+              "colorTheme": "light",
+              "locale": "heb"
             }
             `}
         </Script>
-      </div>
+ 
       {/* TradingView Widget END */}
     </div>
   );

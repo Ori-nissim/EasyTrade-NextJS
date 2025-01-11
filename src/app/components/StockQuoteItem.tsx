@@ -13,7 +13,7 @@ export default function StockQuoteItem({ symbol, price, change, changePercent }:
             </div>
             <div className="flex flex-col">
                 <p className="font-bold text-text text-lg text-right" >{Number(price).toFixed(2)} $</p>
-                <p className={color}>{isPlus + Number(change).toFixed(2)}$ ({isPlus}{changePercent})</p>
+                <p className={color}>{isPlus + Number(change).toFixed(2)}$ ({isPlus}{changePercent.slice(0,4)}%)</p>
             </div>
 
         </div>
