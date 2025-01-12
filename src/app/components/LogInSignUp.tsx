@@ -19,7 +19,7 @@ export default function LogInSignUp(props: {session : Session}) {
                 Hello, {props.session.user?.name}
               </span>
               <button
-                className="border-red-500 text-red-500 border-2 rounded-md py-2 px-2 hover:bg-red-50"
+                className="border-red-500 text-red-500 border-2 rounded-2xl py-2 px-2 hover:bg-red-50"
                 onClick={() => signOut()}
               >
                 Sign Out

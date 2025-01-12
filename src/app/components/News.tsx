@@ -28,7 +28,8 @@ export default async function News(props: {
   const start = (currentPage - 1) * articlesPerPage;
   const end = start + articlesPerPage;
 
-  const newsPage = news.slice(start, end);
+  const newsPage = news?.slice(start, end);
+  if (newsPage === undefined) return <div>Error fetching news</div>
 
   return (
     <div className="mt-4">

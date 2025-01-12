@@ -11,7 +11,7 @@ export default function EasyTradeLogo(props: {isDarkMode:boolean}) {
             height={50}
 
           />
-          <h1 className="text-2xl text-text text-gray-800 inter font-bold">
+          <h1 className="text-2xl text-text inter font-bold">
             EasyTrade
           </h1>
         </div>

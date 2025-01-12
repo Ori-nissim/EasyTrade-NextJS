@@ -1,5 +1,6 @@
 "use client";
 
+
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import BurgerMenu from "./BurgerMenu";
@@ -13,6 +14,7 @@ export default function Header() {
   const { data: session } = useSession(); // Get the session object
   const [isMenuShown, setMenuShown] = useState(false);
   const [isDarkMode, setDarkMode] = useState(false);
+
 
   // On initial render, check for saved theme preference in localStorage
   useEffect(() => {
