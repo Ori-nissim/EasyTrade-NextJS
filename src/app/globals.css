@@ -15,11 +15,13 @@
 .light {
   /* Your default theme */
   --text: black;
-  --text-title: white;
+  --text-title: rgb(38, 38, 38);
+  --text-nav: rgb(120, 120, 120);
   --text-secondary: #6b7280;
-  --text-hover: #2563eb;
+  --text-hover: #618ff3;
+  --text-nav-selected: #2563eb;
   --card: #f8f8f8;
-  --tradeCard:#f0f0f0;
+  --tradeCard: #f0f0f0;
   --background: #ebebeb;
   --card-hover: #e5e7eb;
   --badge: #cccdcf;
@@ -34,10 +36,12 @@
 .dark {
   --text: #e0e0e0; /* Text color */
   --text-title: white;
+  --text-nav: rgb(201, 200, 200);
   --text-secondary: #cecaca;
-  --text-hover: #2563eb;
+  --text-hover: #618ff3;
+  --text-nav-selected: #2563eb;
   --card: #262626; /* Card background */
-  --tradeCard:#313131;
+  --tradeCard: #313131;
   --background: #1d1d1d; /* Main background */
   --card-hover: #353535; /* Card hover background */
   --badge: #ebedf3;
@@ -54,9 +58,9 @@ body {
 }
 
 .card {
-  @apply bg-card p-4 rounded-lg shadow-md my-5 text-text
+  @apply bg-card p-4 rounded-lg shadow-md my-5 text-text;
 }
 
 .tradeCard {
-  @apply bg-tradeCard p-4 rounded-sm shadow-md mt-4 text-text hover:bg-cardHover
+  @apply bg-tradeCard p-4 rounded-sm shadow-md mt-4 text-text hover:bg-cardHover;
 }

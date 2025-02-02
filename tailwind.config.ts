@@ -13,6 +13,8 @@ const config: Config = {
       colors: {
         text: "var(--text)",
         textTitle: "var(--text-title)",
+        textNav: "var(--text-nav)",
+        textNavSelected: "var(--text-nav-selected)",
         textSecondary: "var(--text-secondary)",
         textHover: "var(--text-hover)",
         card: "var(--card)",
@@ -30,6 +32,5 @@ const config: Config = {
     },
   },
   plugins: [],
-
 };
 export default config;

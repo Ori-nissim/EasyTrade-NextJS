@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from 'next-themes'
+import { ThemeProvider } from "next-themes";
 
 import "./globals.css";
 import Header from "./components/Header";
@@ -9,34 +9,41 @@ import Footer from "./components/Footer";
 import { geistMono } from "./fonts/fonts";
 import { geistSans } from "./fonts/fonts";
 
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
+
 export const metadata: Metadata = {
-  title: "EasyTrade - Trade Responsibly",
+  title: "Graphtitude",
   description: "",
 };
 
-export default function RootLayout({
-
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head />
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background`}
+      >
         <ThemeProvider attribute="class" defaultTheme="light">
           <SessionProvider>
-            <Header />
-            <ContentContainer>
-              {children}
-            </ContentContainer>
-            <Footer />
+            <NextIntlClientProvider messages={messages}>
+              <Header />
+              <ContentContainer>{children}</ContentContainer>
+              <Footer />
+            </NextIntlClientProvider>
           </SessionProvider>
         </ThemeProvider>
-
       </body>
-
     </html>
-
   );
 }

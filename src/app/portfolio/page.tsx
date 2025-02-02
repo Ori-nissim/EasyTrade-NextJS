@@ -8,8 +8,6 @@ import { dummyPortfolio } from "../lib/data";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-
-
 export default function PortfolioPage() {
   const [portfolio, setPortfolio] = useState(dummyPortfolio);
 

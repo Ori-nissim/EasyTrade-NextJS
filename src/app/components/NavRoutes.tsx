@@ -1,24 +1,48 @@
-"use client"
+"use client";
+import { BookOpen, Home, LucideIcon, Newspaper, PieChart } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function NavRoutes() {
-    return (
-        <div>
-            <ul className="space-x-4 hidden lg:flex lg:m-auto">
-                <NavRoutesItem path="/" text="Home" />
-                <NavRoutesItem path="/tradingJournal" text="Trading Journal" />
-                <NavRoutesItem path="/portfolio" text="Portfolio" />
-            </ul>
-        </div>
+  const pathname = usePathname();
 
-    );
-}
-export function NavRoutesItem(props: { path: string, text: string }) {
+  // returns if the current path is active
+  const isActive = (path: string) => pathname === path;
+
+  function NavLink(props: {
+    path: string;
+    text: string;
+    icon: React.ReactElement<LucideIcon>;
+  }) {
     return (
-        <li>
-            <Link className="text-lg text-text hover:text-textHover hover:border-b-2 border-complement" href={props.path}>
-                {props.text}
-            </Link>
-        </li>
+      <li>
+        <Link
+          className={`flex space-x-1 items-center text-md hover:text-textHover py-3 border-textNavSelected ${
+            isActive(props.path)
+              ? "text-textNavSelected border-b-2"
+              : "text-textNav"
+          } `}
+          href={props.path}
+        >
+          {props.icon}
+          <span>{props.text}</span>
+        </Link>
+      </li>
     );
+  }
+
+  return (
+    <div>
+      <ul className="space-x-6 hidden lg:flex lg:m-auto ">
+        <NavLink path="/" text="Home" icon={<Home />} />
+        <NavLink path="/news" text="News" icon={<Newspaper />} />
+        <NavLink
+          path="/tradingJournal"
+          text="Trading Journal"
+          icon={<BookOpen />}
+        />
+        <NavLink path="/portfolio" text="Portfolio" icon={<PieChart />} />
+      </ul>
+    </div>
+  );
 }
