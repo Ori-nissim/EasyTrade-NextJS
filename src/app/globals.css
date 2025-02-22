@@ -16,7 +16,7 @@
   /* Your default theme */
   --text: black;
   --text-title: rgb(38, 38, 38);
-  --text-nav: rgb(120, 120, 120);
+  --text-nav: rgb(74, 74, 74);
   --text-secondary: #6b7280;
   --text-hover: #618ff3;
   --text-nav-selected: #2563eb;
@@ -63,4 +63,8 @@ body {
 
 .tradeCard {
   @apply bg-tradeCard p-4 rounded-sm shadow-md mt-4 text-text hover:bg-cardHover;
+}
+
+.userProfileListItem {
+  @apply flex items-center px-3 py-2  hover:bg-cardHover rounded-md;
 }

@@ -1,8 +1,51 @@
 {
   "header": {
-    "home": "Home1",
-    "news": "News1",
-    "tradingJournal": "trading Journal1",
-    "portfolio": "Portfolio1"
+    "home": "Home",
+    "news": "News",
+    "tradingJournal": "Trading Journal",
+    "portfolio": "Portfolio"
+  },
+  "auth": {
+    "hello": "Hello",
+    "profile": "Profile",
+    "profilePicture": "User profile picture",
+    "signOut": "Sign Out",
+    "signInGoogle": "Sign in with Google",
+    "language": "Language",
+    "theme": "Theme",
+    "loading": "Loading..."
+  },
+
+  "hero": {
+    "title": "Your Smart Financial Companion",
+    "subtitle": "Make informed investment decisions with real-time data, AI-powered insights, and professional trading tools.",
+    "getStarted": "Get Started"
+  },
+  "features": {
+    "realTimeData": {
+      "title": "Market Data & News",
+      "description": "Access live market data and financial news."
+    },
+    "aiAnalysis": {
+      "title": "AI-Powered Analysis",
+      "description": "Get intelligent market insights, sentiment analysis, and personalized trading recommendations.",
+      "badge": "Coming Soon"
+    },
+    "tradeHere": {
+      "title": "Trade Here",
+      "description": "Graphtitude is going to integrate with external brokers!"
+    },
+    "advancedAnalytics": {
+      "title": "Advanced Analytics",
+      "description": "Powerful technical analysis tools, custom indicators, and automated pattern recognition."
+    },
+    "smartJournal": {
+      "title": "Smart Journal",
+      "description": "Document trades, analyze performance, and get AI-powered insights to improve your strategy."
+    },
+    "marketSentiment": {
+      "title": "Market Sentiment",
+      "description": "Track market sentiment in real-time with our advanced sentiment analysis engine."
+    }
   }
 }

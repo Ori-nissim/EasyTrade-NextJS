@@ -1,25 +1,36 @@
 "use client";
 
 import { Session } from "next-auth";
-import LogInSignUp from "./LogInSignUp";
-import { NavRoutes } from "./NavRoutes";
-import ToggleTheme from "./ToggleTheme";
+import LogInSignUp from "./UserProfile/LogInSignUp";
+import NavRoutes from "./NavRoutes";
+import { forwardRef } from "react";
 
-export default function DropDownMenu(props: {
-  toggleDarkMode: () => void;
-  isDarkMode: boolean;
-  session: Session | null;
-}) {
+const DropDownMenu = forwardRef<
+  HTMLDivElement,
+  {
+    toggleDarkMode: () => void;
+    isDarkMode: boolean;
+    status: string;
+    session: Session | null;
+  }
+>(({ toggleDarkMode, isDarkMode, status, session }, ref) => {
   return (
-    <div className="absolute top-16 right-0 w-48 bg-background text-text shadow-md lg:hidden">
-      <ul className="flex flex-col space-y-2 p-4">
-        <LogInSignUp session={props.session} />
-
-        <ToggleTheme
-          toggleDarkMode={props.toggleDarkMode}
-          isDarkMode={props.isDarkMode}
+    <div
+      ref={ref} // Attach ref to the dropdown menu
+      className="absolute top-16 right-0 h-80 w-60 bg-card text-text shadow-md lg:hidden border-1 border-textNav rounded-md"
+    >
+      <div className="flex flex-col space-y-2 p-4">
+        <LogInSignUp
+          session={session}
+          status={status}
+          toggleDarkMode={toggleDarkMode}
+          isDarkMode={isDarkMode}
         />
-      </ul>
+        <NavRoutes />
+      </div>
     </div>
   );
-}
+});
+
+DropDownMenu.displayName = "DropDownMenu";
+export default DropDownMenu;
